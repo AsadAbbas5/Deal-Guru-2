@@ -3,7 +3,7 @@ const User = require("../models/User");
 const router = express.Router();
 const bcrypt = require("bcrypt");
 const { createdToken } = require("../utils/utils");
-const veryfiUser = require("../middleWares/veryfiUser");
+const veryfiUser = require("../middlewares/veryfiUser");
 
 router.use(["/profile"], veryfiUser);
 
