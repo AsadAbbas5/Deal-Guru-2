@@ -34,7 +34,7 @@ const [open,setOpen] = useState(null)
       setOpen(false);
     }}
       axios
-        .postForm("/api/products/AddProduct", data)
+        .postForm("api/products/AddProduct", data)
         .then((res) => {
           dispatch({
             type: ProductAction.ADD_PRODUCT,

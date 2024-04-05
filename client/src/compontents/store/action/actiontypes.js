@@ -17,7 +17,7 @@ export const loadProfile = () => {
     const token = localStorage.getItem("token");
     if (token) {
       axios
-        .get("/api/user/profile")
+        .get("api/user/profile")
         .then((res) => {
           console.log(res.data);
           dispatch({ type: ActiontTpes.PROFILE_LOADED, user: res.data });

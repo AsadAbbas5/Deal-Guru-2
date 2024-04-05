@@ -1,6 +1,6 @@
 import axios from "axios";
 export default function configerAxios(store) {
-  axios.defaults.baseURL = "http://localhost:5000";
+  axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
   axios.interceptors.request.use(
     (config) => {
       if (!config.headers.Authorization) {

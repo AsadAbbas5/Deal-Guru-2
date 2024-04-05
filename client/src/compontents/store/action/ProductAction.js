@@ -7,7 +7,7 @@ export const ProductAction = {
 
 export const loadProducts = () => {
         return (dispatch, getState) => {
-                axios.get("/api/products/loadProduct").then(
+                axios.get("api/products/loadProduct").then(
                         res => {
                                 dispatch({ type: ProductAction.PRODUCT_LOADED,   product: res.data.product, })
                                 

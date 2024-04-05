@@ -31,7 +31,7 @@ function Signin() {
         password: password,
       };
       axios
-        .post("http://localhost:5000/api/user/signin", data)
+        .post("api/user/signin", data)
         .then((res) => {
           dispatch({ type: ActiontTpes.SIGN_IN, data: res.data });
           localStorage.setItem("token", res.data.token);

@@ -28,7 +28,7 @@ function SignUp() {
         password: password,
       };
       axios
-        .post("http://localhost:5000/api/user/signup", data)
+        .post("api/user/signup", data)
         .then((res) => console.log(res))
         .catch((error) => console.log(error));
     }
