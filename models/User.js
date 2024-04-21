@@ -21,7 +21,6 @@ const useSchema = new mongoose.Schema({
         default: moment().format("YYYY-MM-DD")
     }
 
-
 })
 
 const User = mongoose.model('users', useSchema)

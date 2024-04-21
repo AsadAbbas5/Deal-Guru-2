@@ -1,11 +1,20 @@
-import { Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
+import React, { useState } from "react";
 import { connect } from "react-redux";
-import NoProduct from "../../NOproduct/NoProduct";
+import {
+  Box,
+  Card,
+  CardContent,
+  CardMedia,
+  Grid,
+  Typography,
+} from "@mui/material";
 import { Link } from "react-router-dom";
-import { useState } from 'react';
+import NoProduct from "../../NOproduct/NoProduct";
+import LikeProduct from "../../LikeProduct/LikeProduct";
+import DisLikeProducts from "../../disLikeProduct/DisLikeProcuct";
+import HeartProduct from "../../heartProduct/HeartProduct";
 
 function ShowProduct({ product }) {
-  console.log(product.productImage,"checking product")
   const [hovered, setHovered] = useState(null);
 
   const handleHover = (index) => {
@@ -36,7 +45,11 @@ function ShowProduct({ product }) {
                 <Link to={`/products/${product._id}`}>
                   <CardMedia
                     component="img"
-                    image={process.env.REACT_APP_BASE_URL + "content/product/" + product.productImage}
+                    image={
+                      process.env.REACT_APP_BASE_URL +
+                      "content/product/" +
+                      product.productImage
+                    }
                     alt={product.ProductTitle}
                     sx={{ height: 350, objectFit: "cover" }}
                   />
@@ -54,7 +67,7 @@ function ShowProduct({ product }) {
                       transition: "font-size 0.3s",
                     }}
                   >
-                  {product.ProductTitle}
+                    {product.ProductTitle}
                   </Typography>
                   <Typography
                     variant="h5"
@@ -64,9 +77,29 @@ function ShowProduct({ product }) {
                     fontWeight="bold"
                     gutterBottom
                   >
-                 ${product.productPrice}
+                    ${product.productPrice}
                   </Typography>
                 </CardContent>
+                <Box display={"flex"} justifyContent="space-around">
+                  <Box>
+                    <LikeProduct productId={product._id} />
+                    <Typography variant="subtitle1" align="center"  color="secondary">
+                      Likes: {product.Likes}
+                    </Typography>
+                  </Box>
+                  <Box>
+                    <DisLikeProducts productId={product._id} />
+                    <Typography variant="subtitle1" align="center" color="secondary">
+                      Dislikes: {product.DisLikes}
+                    </Typography>
+                  </Box>
+                  <Box>
+                    <HeartProduct productId={product._id} />
+                    <Typography variant="subtitle1" align="center"  color="secondary">
+                      Hearts: {product.hearts}
+                    </Typography>
+                  </Box>
+                </Box>
               </Card>
             </Grid>
           ))}
@@ -77,6 +110,7 @@ function ShowProduct({ product }) {
     </>
   );
 }
+
 const mapStateToProps = (state) => {
   return {
     product: state.product.product,

@@ -5,6 +5,7 @@ import { Card, CardContent, CardMedia, Typography } from "@mui/material";
 
 function SingleProduct() {
   const products = useSelector((state) => state.product.product);
+  
   const { id } = useParams();
   const product = products.find((product) => product._id === id);
 

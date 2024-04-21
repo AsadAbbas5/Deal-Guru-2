@@ -30,7 +30,6 @@ app.use("/api/products",ProductRoutes)
 app.all("*", (req, res) => {
   res.sendFile(__dirname + '/client/build/index.html')
 });
-
 app.listen(process.env.PORT || 5000, () => {
   console.log(`listening at port 5000`);
 });

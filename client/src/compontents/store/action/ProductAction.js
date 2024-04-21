@@ -3,6 +3,9 @@ import axios from "axios";
 export const ProductAction = {
   ADD_PRODUCT: "AddProduct",
   PRODUCT_LOADED: "productloaded",
+  LIKE_PRODUCT:"likeProduct",
+  DISlIKE_PRODUCT:"dislikeproduct",
+  HEART_PRODUCT:"heartproduct"
 };
 
 export const loadProducts = () => {
